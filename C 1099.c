@@ -4,8 +4,7 @@ int main(void)
 {
 	int a[11][11]={};
 	int i,j;
-	int x = 2;
-	int y = 2;
+	int x=2,y=2;
 	
 	
 	for(i=1;i<=10;i++)
@@ -17,34 +16,16 @@ int main(void)
 	 
 	}	
 
-	while(1)
-	{		
-			if(a[x][y] == 2)
-			{
-				a[x][y] = 9;
-				break;
-		    }
-			else if(a[x][y] == 0)
-			{
-				
-				a[x][y] = 9;
-				y=y+1;	
-			}
-			else if(a[x][y] == 1)
-			{	
-				
-				x=x+1;
-				y=y-1;
-				if(a[x][y] == 2)
-				{
-					a[x][y] = 9;
-					break;
-				}
-				a[x][y] = 9;
-				y=y+1;
-				
-			}		
+	while(a[x][y] != 2)
+	{	
+		a[x][y] = 9;
+		
+		if(a[x][y+1] != 1) y++;		
+	    else if(a[x+1][y] != 1) x++;
+		else break;	
 	}
+	a[x][y] = 9;
+	
 		
 	for(i=1;i<=10;i++)
 	{
@@ -54,8 +35,6 @@ int main(void)
 	 }	
 	 printf("\n");	
 	}	
-	
-
 	
 	
 	return 0;
